@@ -1,0 +1,16 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df2 = pd.read_csv("day27_boxplots.csv")
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+df2["score"].hist(bins=10, ax=axes[0]); axes[0].set_title("10 Bins (Counts)")
+df2["score"].hist(bins=40, ax=axes[1], density=True); axes[1].set_title("40 Bins (Density)")
+plt.show()
+
+
+plt.figure(figsize=(6, 4))
+plt.boxplot(df2["score"], vert=True, showfliers=True)
+plt.title("Score — Boxplot"); plt.ylabel("Score")
+plt.show()
